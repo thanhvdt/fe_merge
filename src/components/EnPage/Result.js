@@ -1,10 +1,10 @@
 import "../style/base.css";
 import "../style/main.css";
 import "../style/responsive.css";
-// import "../style/result.css";
 
 import React from "react";
 import { useState } from "react";
+import { NavItem } from "react-bootstrap";
 
 export default function Result(props) {
   const wordTypeConverter = (type) => {
@@ -19,6 +19,20 @@ export default function Result(props) {
         return type;
     }
   };
+
+  function play1() {
+    var audio1 = new Audio(
+      "http://127.0.0.1:5000/static/" + props.result.en + ".mp3"
+    );
+    audio1.play();
+  }
+
+  function play2() {
+    var audio2 = new Audio(
+      "http://127.0.0.1:5000/static/" + props.result.vn + ".mp3"
+    );
+    audio2.play();
+  }
 
   return (
     <>
@@ -36,9 +50,7 @@ export default function Result(props) {
             </header>
             <section className="section-item section-search-result">
               <div className="result-item">
-              <div class="text-center result-img-btn">
-                    Display Image
-                </div>
+                <div class="text-center result-img-btn">Display Image</div>
                 {/* <figure class="figure result-img">
                     <img
                       src="../SoftCon_Frontend/assets/img/acinic_img.jpg"
@@ -53,7 +65,17 @@ export default function Result(props) {
                     ) : (
                       <h1>{props.result.vn}</h1>
                     )}
-                    <i className="fa-solid fa-volume-high result-item__term-speaker" />
+                    {props.fromEng ? (
+                      <i
+                        className="fa-solid fa-volume-high result-item__term-speaker"
+                        onClick={play1}
+                      />
+                    ) : (
+                      <i
+                        className="fa-solid fa-volume-high result-item__term-speaker"
+                        onClick={play2}
+                      />
+                    )}
                   </div>
                   <div className="result-item__term-attr">
                     {props.fromEng ? (
@@ -71,7 +93,17 @@ export default function Result(props) {
                     ) : (
                       <h1>{props.result.en}</h1>
                     )}
-                    <i className="fa-solid fa-volume-high result-item__term-speaker" />
+                    {props.fromEng ? (
+                      <i
+                        className="fa-solid fa-volume-high result-item__term-speaker"
+                        onClick={play2}
+                      />
+                    ) : (
+                      <i
+                        className="fa-solid fa-volume-high result-item__term-speaker"
+                        onClick={play1}
+                      />
+                    )}
                   </div>
                   <div className="result-item__term-attr">
                     {props.fromEng ? (

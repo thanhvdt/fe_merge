@@ -15,19 +15,19 @@ import SearchMobile from "./SearchMobile";
 import TestSearchBar from "./TestSearchbar";
 
 export default function Home(props) {
+  const [items, setItems] = useState();
   const { height, width } = useWindowDimensions();
 
   return (
     <header className="header" id="searching">
       <NavBar />
       <DictLang {...props} />
-      <Search {...props} />
+      <Search {...props} items={items} setItems={setItems} />
       {(() => {
         if (props.showSearchMobile && width <= 739) {
           return <SearchMobile {...props} />;
         }
       })()}
-      {/* <SearchMobile {...props} /> */}
     </header>
   );
 }
