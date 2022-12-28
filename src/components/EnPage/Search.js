@@ -5,7 +5,6 @@ import "../style/base.css";
 import "../style/main.css";
 import "../style/responsive.css";
 
-
 function Search(props) {
   const fromEng = props.fromEng;
   // note: the id field is mandatory
@@ -4038,66 +4037,65 @@ function Search(props) {
   ];
   const items2 = [
     {
-        "idx": 1,
-        "eng": "ab-",
-        "vn": " r\u1eddi, xa, gi\u1ea1ng,t\u00e1ch xa",
-        "word_type": "pref.",
-        "word_type_vn": "ti\u1ec1n t\u1ed1"
+      idx: 1,
+      eng: "ab-",
+      vn: " r\u1eddi, xa, gi\u1ea1ng,t\u00e1ch xa",
+      word_type: "pref.",
+      word_type_vn: "ti\u1ec1n t\u1ed1",
     },
     {
-        "idx": 2,
-        "eng": "abacterial",
-        "vn": "kh\u00f4ng c\u00f3 vi khu\u1ea9n, phi khu\u1ea9n",
-        "word_type": "a",
-        "word_type_vn": "t\u00ednh t\u1eeb"
+      idx: 2,
+      eng: "abacterial",
+      vn: "kh\u00f4ng c\u00f3 vi khu\u1ea9n, phi khu\u1ea9n",
+      word_type: "a",
+      word_type_vn: "t\u00ednh t\u1eeb",
     },
     {
-        "idx": 3,
-        "eng": "abaptiston",
-        "vn": "khoan s\u1ecd an to\u00e0n ",
-        "word_type": "n",
-        "word_type_vn": "danh t\u1eeb"
+      idx: 3,
+      eng: "abaptiston",
+      vn: "khoan s\u1ecd an to\u00e0n ",
+      word_type: "n",
+      word_type_vn: "danh t\u1eeb",
     },
     {
-        "idx": 4,
-        "eng": "abaragnosis",
-        "vn": "m\u1ea5t nh\u1eadn th\u1ee9c tr\u1ecdng l\u01b0\u1ee3ng, m\u1ea5t tr\u1ecdng l\u01b0\u1ee3ng th\u1ee9c ",
-        "word_type": "n",
-        "word_type_vn": "danh t\u1eeb"
+      idx: 4,
+      eng: "abaragnosis",
+      vn: "m\u1ea5t nh\u1eadn th\u1ee9c tr\u1ecdng l\u01b0\u1ee3ng, m\u1ea5t tr\u1ecdng l\u01b0\u1ee3ng th\u1ee9c ",
+      word_type: "n",
+      word_type_vn: "danh t\u1eeb",
     },
     {
-        "idx": 5,
-        "eng": "abarthrosis",
-        "vn": "kh\u1edbp \u0111\u1ed9ng ",
-        "word_type": "n",
-        "word_type_vn": "danh t\u1eeb"
+      idx: 5,
+      eng: "abarthrosis",
+      vn: "kh\u1edbp \u0111\u1ed9ng ",
+      word_type: "n",
+      word_type_vn: "danh t\u1eeb",
     },
     {
-        "idx": 6,
-        "eng": "abarticular",
-        "vn": "1. kh\u00f4ng g\u00e2y t\u1ed5n kh\u1edbp. 2.ngo\u00e0i kh\u1edbp ",
-        "word_type": "a",
-        "word_type_vn": "t\u00ednh t\u1eeb"
+      idx: 6,
+      eng: "abarticular",
+      vn: "1. kh\u00f4ng g\u00e2y t\u1ed5n kh\u1edbp. 2.ngo\u00e0i kh\u1edbp ",
+      word_type: "a",
+      word_type_vn: "t\u00ednh t\u1eeb",
     },
     {
-        "idx": 7,
-        "eng": "abarticulation",
-        "vn": "1. sai kh\u1edbp. 2. kh\u1edbp \u0111\u1ed9ng",
-        "word_type": "n",
-        "word_type_vn": "danh t\u1eeb"
-    }
-]
-
+      idx: 7,
+      eng: "abarticulation",
+      vn: "1. sai kh\u1edbp. 2. kh\u1edbp \u0111\u1ed9ng",
+      word_type: "n",
+      word_type_vn: "danh t\u1eeb",
+    },
+  ];
 
   const handleOnSearch = (string) => {
     axios
-    .get("http://127.0.0.1:5000/search_bar/", {
-      params: {word:string},
-    })
-    .then((response) => {
-      // console.log(response.data)
-      props.setItems(response.data)
-    })
+      .get("http://127.0.0.1:5000/search_bar/", {
+        params: { word: string },
+      })
+      .then((response) => {
+        // console.log(response.data)
+        props.setItems(response.data);
+      });
   };
 
   // const itemsReturn = () =
@@ -4109,22 +4107,18 @@ function Search(props) {
   const handleOnSelect = (item) => {
     axios
       .get("http://127.0.0.1:5000/audio/", {
-        params: { en_word:item.en, vi_word:item.vn},
+        params: { en_word: item.en, vi_word: item.vn },
       })
-      .then((response) => {
-        
-      })
+      .then((response) => {});
 
-      props.setShowResult(!props.showResult);
-      props.setResult({
-        en: `${item.en}`,
-        vn: `${item.vn}`,
-        type: `${item.word_type}`,
-        type_vn: `${item.word_type_vn}`,
-      });
+    props.setShowResult(!props.showResult);
+    props.setResult({
+      en: `${item.en}`,
+      vn: `${item.vn}`,
+      type: `${item.word_type}`,
+      type_vn: `${item.word_type_vn}`,
+    });
   };
-
-  
 
   const handleOnFocus = () => {
     // console.log("Focused");
