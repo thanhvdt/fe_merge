@@ -8,6 +8,7 @@ import "../style/responsive.css";
 function Search(props) {
   const fromEng = props.fromEng;
   // note: the id field is mandatory
+
   const items = [
     {
       idx: 0,
