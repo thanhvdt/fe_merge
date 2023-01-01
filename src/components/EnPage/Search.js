@@ -4035,57 +4035,6 @@ function Search(props) {
       word_type_vn: "t\u00ednh t\u1eeb",
     },
   ];
-  const items2 = [
-    {
-      idx: 1,
-      eng: "ab-",
-      vn: " r\u1eddi, xa, gi\u1ea1ng,t\u00e1ch xa",
-      word_type: "pref.",
-      word_type_vn: "ti\u1ec1n t\u1ed1",
-    },
-    {
-      idx: 2,
-      eng: "abacterial",
-      vn: "kh\u00f4ng c\u00f3 vi khu\u1ea9n, phi khu\u1ea9n",
-      word_type: "a",
-      word_type_vn: "t\u00ednh t\u1eeb",
-    },
-    {
-      idx: 3,
-      eng: "abaptiston",
-      vn: "khoan s\u1ecd an to\u00e0n ",
-      word_type: "n",
-      word_type_vn: "danh t\u1eeb",
-    },
-    {
-      idx: 4,
-      eng: "abaragnosis",
-      vn: "m\u1ea5t nh\u1eadn th\u1ee9c tr\u1ecdng l\u01b0\u1ee3ng, m\u1ea5t tr\u1ecdng l\u01b0\u1ee3ng th\u1ee9c ",
-      word_type: "n",
-      word_type_vn: "danh t\u1eeb",
-    },
-    {
-      idx: 5,
-      eng: "abarthrosis",
-      vn: "kh\u1edbp \u0111\u1ed9ng ",
-      word_type: "n",
-      word_type_vn: "danh t\u1eeb",
-    },
-    {
-      idx: 6,
-      eng: "abarticular",
-      vn: "1. kh\u00f4ng g\u00e2y t\u1ed5n kh\u1edbp. 2.ngo\u00e0i kh\u1edbp ",
-      word_type: "a",
-      word_type_vn: "t\u00ednh t\u1eeb",
-    },
-    {
-      idx: 7,
-      eng: "abarticulation",
-      vn: "1. sai kh\u1edbp. 2. kh\u1edbp \u0111\u1ed9ng",
-      word_type: "n",
-      word_type_vn: "danh t\u1eeb",
-    },
-  ];
 
   const handleOnSearch = (string) => {
     axios
@@ -4148,7 +4097,7 @@ function Search(props) {
         }}
       >
         <ReactSearchAutocomplete
-          items={props.items}
+          items={items1}
           onSearch={handleOnSearch}
           onHover={handleOnHover}
           onSelect={handleOnSelect}
