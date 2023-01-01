@@ -5,6 +5,7 @@ import "../style/responsive.css";
 
 import React from "react";
 import { useState } from "react";
+
 import useWindowDimensions from "../windowDim";
 
 import NavBar from "./NavBar";
