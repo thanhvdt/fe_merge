@@ -12,13 +12,12 @@ import TestSearchBar from "./TestSearchbar";
 
 
 export default function Home(props) {
-  const [items, setItems] = useState();
+  
   return (
     <header className="header" id="searching">
       <NavBar />
       <DictLang {...props} />
-      <Search {...props} items = {items} setItems={setItems} />
-      {/* <TestSearchBar fromEng={fromEng} /> */}
+      <Search {...props}/>
     </header>
   );
 }

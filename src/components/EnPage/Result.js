@@ -8,12 +8,18 @@ import { NavItem } from "react-bootstrap";
 
 export default function Result(props) {
   function play1() {
-    var audio1 = new Audio("http://127.0.0.1:5000/static/"+props.result.en+".mp3");
+    // THE ADDR BELOW MUST BE THE DOMAIN NAME OF THE CLOUD SERVER WHEN DEPLOYED!
+    var audio1 = new Audio(
+      "http://localhost:5000/static/" + props.result.en + "1.mp3"
+    );
     audio1.play();
   }
 
   function play2() {
-    var audio2 = new Audio("http://127.0.0.1:5000/static/"+props.result.vn+".mp3");
+    // THE ADDR BELOW MUST BE THE DOMAIN NAME OF THE CLOUD SERVER WHEN DEPLOYED!
+    var audio2 = new Audio(
+      "http://localhost:5000/static/" + props.result.vn + "2.mp3"
+    );
     audio2.play();
   }
 
@@ -21,7 +27,6 @@ export default function Result(props) {
     <>
       {props.showResult && (
         <section className="modal_result modal_result-mobile">
-          
           <div className="modal_result-container">
             <header className="modal_result-header">
               <div
@@ -31,7 +36,8 @@ export default function Result(props) {
                 <i className="fa-solid fa-xmark" />
               </div>
               Search Result
-            </header>6
+            </header>
+            6
             <section className="section-item section-search-result">
               <div className="result-item">
                 <div className="result-item__term">
@@ -42,9 +48,15 @@ export default function Result(props) {
                       <h1>{props.result.vn}</h1>
                     )}
                     {props.fromEng ? (
-                      <i className="fa-solid fa-volume-high result-item__term-speaker" onClick={play1}/>
+                      <i
+                        className="fa-solid fa-volume-high result-item__term-speaker"
+                        onClick={play1}
+                      />
                     ) : (
-                      <i className="fa-solid fa-volume-high result-item__term-speaker" onClick={play2}/>
+                      <i
+                        className="fa-solid fa-volume-high result-item__term-speaker"
+                        onClick={play2}
+                      />
                     )}
                   </div>
                   <div className="result-item__term-attr">
@@ -63,10 +75,16 @@ export default function Result(props) {
                     ) : (
                       <h1>{props.result.en}</h1>
                     )}
-                      {props.fromEng ? (
-                      <i className="fa-solid fa-volume-high result-item__term-speaker" onClick={play2}/>
+                    {props.fromEng ? (
+                      <i
+                        className="fa-solid fa-volume-high result-item__term-speaker"
+                        onClick={play2}
+                      />
                     ) : (
-                      <i className="fa-solid fa-volume-high result-item__term-speaker" onClick={play1}/>
+                      <i
+                        className="fa-solid fa-volume-high result-item__term-speaker"
+                        onClick={play1}
+                      />
                     )}
                   </div>
                   <div className="result-item__term-attr">
